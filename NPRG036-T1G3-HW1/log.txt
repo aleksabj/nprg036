@@ -1,0 +1,11 @@
+UML diagram:
+
+Creators: Vladyslav Stashevskyi, Antonina Bondar, Disha Dass
+Verifiers: Glauk Aliu, Aleksandrina Bujor
+
+
+Textual Specification:
+
+Creators: Vladyslav Stashevskyi, Aleksandrina Bujor
+Verifiers: Antonina Bondar, Disha Dass, Glauk Aliu
+

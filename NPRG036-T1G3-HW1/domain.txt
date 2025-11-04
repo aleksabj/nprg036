@@ -1,0 +1,131 @@
+Specification: Film Festival Domain
+
+This domain model represents entities and relationships within a film festival. It models presented films, actors and directors involved in them, screenings on the festival and awards granted to the participated films.
+
+
+
+Class: Person
+
+This class represents a person, either an actor or a director.
+
+Attributes:
+    - fullName
+	- Type: String
+	- Description: Full name of the person
+	- Example: Jane Doe
+    - birthYear
+	- Type: Integer
+	- Description: The year person was born
+	- Example: 1999
+    - phoneNumber [0..*]
+	- Type: String
+	- Description: The person may have multiple phone numbers or none at all
+	- Example: +420608266787
+
+Associations:
+None(Generalization relationship connects to subclasses).
+
+
+
+Class: Actor
+
+This class represents a person who performs roles in films presented at the festival, deriving from Person.
+
+Attributes:
+Inherits all attributes from Person.
+
+Associations:
+    - association: stars in
+	- Association: Film
+	- Type: Film
+	- Name: Films starred in
+	- Description: Each actor must star in one or more films, and each film features one or more actors(1..* -- 1..*)
+
+
+
+Class: Film
+
+This class represents a film screened and evaluated at the festival.
+
+Attributes:
+    - title
+	- Type: String
+	- Description: Official title of the film
+	- Example: Pulp Fiction
+    - duration
+	- Type: Integer
+	- Description: Film duration in minutes
+	- Example: 154
+    - releaseYear
+	- Type: Integer
+	- Description: Year the film was released
+	- Example: 1994
+
+Associations:
+    - association: stars in
+	- Association: Actor
+	- Type: Actor
+	- Name: Starring Actors
+	- Description: The actors who participated in the film. (1..* <- 1..*)
+    - association: awarded
+	- Association: Award
+	- Type: Award
+	- Name: Film Awards
+	- Description: Awards won by the film. (0..1 <-> 0..*)
+    - association: directed by
+	- Association: Director
+	- Type: Director
+	- Name: Film Director
+	- Description: The single director of the film. (1..1 <- 1..*)
+    - association: showed
+	- Association: Screening
+	- Type: Screening
+	- Name: Festival Screenings
+	- Description: The scheduled screenings of the film on the festival. ( 1..1 <-> 1..**)
+
+
+
+Class: Award
+
+This class represents a festival award attributed to a film.
+
+Attributes:
+    - name:
+	- Type: String
+	- Description: Name of the award
+	- Example: Golden Duke
+    - prizeMoney
+	- Type: Decimal
+	- Description: Award money value
+	- Example: 10.000
+
+Associations:
+    - association: awarded to
+	- Association: Film
+	- Type: Film
+	- Name: Awarded Film
+	- Description: Award was given to this film, per award at most one film.( 0..* <- 0..1)
+
+
+
+Class: Screening 
+
+This class represents a scheduled festival screening of a film.
+
+Attributes:
+    - date
+	- Type: Date
+	- Description: Screening date
+	- Example: 2025-09-24
+    - time 
+	- Type: Time
+	- Description: Screening start time
+	- Example: 19:30
+
+Associations:
+    - association: showed
+	- Association: Film
+	- Type: Film
+	- Name: Shown Film
+	- Description: The film screened, per screening exactly one film.(1..* <- 1..1)
+
