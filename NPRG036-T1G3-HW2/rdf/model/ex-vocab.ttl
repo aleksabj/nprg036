@@ -7,7 +7,7 @@
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 
 ########
-# CLASSES (new in our ex: vocabulary)
+# CLASSES
 ########
 
 ex:Actor a rdfs:Class ;
