@@ -4,6 +4,109 @@
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema:  <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+########
+# CLASSES
+########
+
+ex:Actor a rdfs:Class ;
+  rdfs:subClassOf schema:Person ;
+  rdfs:label "Actor"@en ;
+  rdfs:comment "A person who performs in a film."@en ;
+  rdfs:isDefinedBy ex: .
+
+ex:Director a rdfs:Class ;
+  rdfs:subClassOf schema:Person ;
+  rdfs:label "Director"@en ;
+  rdfs:comment "A person responsible for the artistic aspects of a film."@en ;
+  rdfs:isDefinedBy ex: .
+
+ex:Award a rdfs:Class ;
+  rdfs:label "Award"@en ;
+  rdfs:comment "An award that can be granted to a film (e.g., Grand Prix)."@en ;
+  rdfs:isDefinedBy ex: .
+
+#############
+# PROPERTIES
+#############
+
+# Person attributes
+ex:birthYear a rdf:Property ;
+  rdfs:label "birth year"@en ;
+  rdfs:comment "Year of birth (Gregorian calendar)."@en ;
+  rdfs:domain schema:Person ;
+  rdfs:range xsd:gYear ;
+  rdfs:isDefinedBy ex: .
+
+ex:phone a rdf:Property ;
+  rdfs:label "phone number"@en ;
+  rdfs:comment "Telephone number as a tel: IRI, e.g., <tel:+420123456789>."@en ;
+  rdfs:domain schema:Person ;
+  rdfs:range rdfs:Resource ;
+  rdfs:isDefinedBy ex: .
+
+# Movie attributes
+ex:durationMinutes a rdf:Property ;
+  rdfs:label "duration (minutes)"@en ;
+  rdfs:domain schema:Movie ;
+  rdfs:range xsd:integer ;
+  rdfs:comment "Running time of the film in whole minutes."@en ;
+  rdfs:isDefinedBy ex: .
+
+# Award attributes
+ex:prizeMoney a rdf:Property ;
+  rdfs:label "prize money"@en ;
+  rdfs:comment "Monetary amount for the award, represented as xsd:decimal in dataset's default currency."@en ;
+  rdfs:domain ex:Award ;
+  rdfs:range xsd:decimal ;
+  rdfs:isDefinedBy ex: .
+
+# Screening -> Film
+ex:showsFilm a rdf:Property ;
+  rdfs:label "shows film"@en ;
+  rdfs:domain schema:ScreeningEvent ;
+  rdfs:range schema:Movie ;
+  rdfs:comment "Links a screening event to the movie being shown."@en ;
+  rdfs:isDefinedBy ex: .
+
+# Award <-> Film 
+ex:awardedTo a rdf:Property ;
+  rdfs:label "awarded to"@en ;
+  rdfs:domain ex:Award ;
+  rdfs:range schema:Movie ;
+  rdfs:comment "Connects an Award instance to the Movie that received it."@en ;
+  rdfs:isDefinedBy ex: ;
+  owl:inverseOf ex:hasAward .
+
+ex:hasAward a rdf:Property ;
+  rdfs:label "has award"@en ;
+  rdfs:domain schema:Movie ;
+  rdfs:range ex:Award ;
+  rdfs:comment "Connects a Movie to an Award it has received."@en ;
+  rdfs:isDefinedBy ex: ;
+  owl:inverseOf ex:awardedTo .
+
+# Actor -> Film relationship
+ex:actsIn a rdf:Property ;
+  rdfs:label "acts in"@en ;
+  rdfs:domain ex:Actor ;
+  rdfs:range schema:Movie ;
+  rdfs:comment "Links an actor to a film they perform in."@en ;
+  rdfs:isDefinedBy ex: .
+
+# Director -> Film relationship  
+ex:directs a rdf:Property ;
+  rdfs:label "directs"@en ;
+  rdfs:domain ex:Director ;
+  rdfs:range schema:Movie ;
+  rdfs:comment "Links a director to a film they direct."@en ;
+  rdfs:isDefinedBy ex: .
+
+###########
+# INSTANCES
+###########
 
 # Movies
 data:drive a schema:Movie ;
