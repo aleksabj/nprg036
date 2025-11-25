@@ -1,0 +1,91 @@
+{
+    "$id": "http://example.org/schemas/festivalSchedule.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "FestivalSchedule",
+    "type": "object",
+    "properties": {
+      "movies": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/Movie" }
+      },
+      "screenings": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/Screening" }
+      },
+      "places": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/Place" }
+      },
+      "awards": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/Award" }
+      }
+    },
+    "required": ["movies", "screenings", "places", "awards"],
+    "$defs": {
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "iri": { "type": "string", "format": "uri" },
+          "name": { "type": "string" },
+          "label": { "type": "string" },
+          "durationMinutes": { "type": "integer" },
+          "datePublished": {
+            "type": "string",
+            "pattern": "^[0-9]{4}$"
+          },
+          "awardRefs": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/Ref" }
+          },
+          "screeningRefs": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/Ref" }
+          }
+        },
+        "required": ["iri", "name", "durationMinutes", "datePublished"]
+      },
+      "Screening": {
+        "type": "object",
+        "properties": {
+          "iri": { "type": "string", "format": "uri" },
+          "name": { "type": "string" },
+          "label": { "type": "string" },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "movieRef": { "$ref": "#/$defs/Ref" },
+          "locationRef": { "$ref": "#/$defs/Ref" }
+        },
+        "required": ["iri", "name", "startDate", "movieRef", "locationRef"]
+      },
+      "Place": {
+        "type": "object",
+        "properties": {
+          "iri": { "type": "string", "format": "uri" },
+          "label": { "type": "string" }
+        },
+        "required": ["iri", "label"]
+      },
+      "Award": {
+        "type": "object",
+        "properties": {
+          "iri": { "type": "string", "format": "uri" },
+          "name": { "type": "string" },
+          "label": { "type": "string" },
+          "prizeMoney": { "type": "number" },
+          "movieRef": { "$ref": "#/$defs/Ref" }
+        },
+        "required": ["iri", "name", "prizeMoney", "movieRef"]
+      },
+      "Ref": {
+        "type": "object",
+        "properties": {
+          "iri": { "type": "string", "format": "uri" }
+        },
+        "required": ["iri"]
+      }
+    }
+  }
+  
