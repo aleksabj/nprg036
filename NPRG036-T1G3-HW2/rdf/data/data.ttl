@@ -190,24 +190,34 @@ data:oscar-actress a ex:Award ;
   rdfs:label "Oscar Best Actress"@en ;
   ex:awardedTo data:la-la-land .
 
+# Locations (new entities instead of literals)
+data:location-hydropark a schema:Place ;
+  rdfs:label "Hydropark"@en .
+
+data:location-slovansky-dum a schema:Place ;
+  rdfs:label "Slovansky dum"@en .
+
+data:location-guliver a schema:Place ;
+  rdfs:label "Guliver"@en .
+
 # Screening Events
 data:screening-hydropark a schema:ScreeningEvent ;
   schema:name "Hydropark Screening"@en ;
-  schema:location "Hydropark"@en ;
+  schema:location data:location-hydropark ;
   schema:startDate "2011-11-11T16:30:00"^^xsd:dateTime ;
   rdfs:label "Drive screening at Hydropark"@en ;
   ex:showsFilm data:drive .
 
 data:screening-slovansky-dum a schema:ScreeningEvent ;
   schema:name "Slovansky dum Screening"@en ;
-  schema:location "Slovansky dum"@en ;
+  schema:location data:location-slovansky-dum ;
   schema:startDate "2017-07-16T21:00:00"^^xsd:dateTime ;
   rdfs:label "Blade Runner 2049 screening at Slovansky dum"@en ;
   ex:showsFilm data:blade-runner-2049 .
 
 data:screening-guliver a schema:ScreeningEvent ;
   schema:name "Guliver Screening"@en ;
-  schema:location "Guliver"@en ;
+  schema:location data:location-guliver ;
   schema:startDate "2016-05-27T12:15:00"^^xsd:dateTime ;
   rdfs:label "La La Land screening at Guliver"@en ;
   ex:showsFilm data:la-la-land .
