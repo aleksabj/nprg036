@@ -1,0 +1,6 @@
+(:Selects movies screened at the location Slovansky dum:)
+/festivalSchedule/movies/movie[
+    @iri = /festivalSchedule/screenings/screening[
+        locationRef/@iri = /festivalSchedule/places/place[label = 'Slovansky dum']/@iri
+    ]/movieRef/@iri
+]/name
