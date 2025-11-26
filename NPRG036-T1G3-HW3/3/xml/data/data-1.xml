@@ -3,86 +3,86 @@
                   xsi:noNamespaceSchemaLocation="../schemas/schema-1.xsd">
 
     <movies>
-        <movie iri="http://example.org/movie/drive">
+        <movie iri="http://example.org/data/drive">
             <name xml:lang="en">Drive</name>
-            <label xml:lang="en">Drive (2011)</label>
+            <label xml:lang="en">Drive</label>
             <durationMinutes>100</durationMinutes>
             <datePublished>2011</datePublished>
-            <awardRef iri="http://example.org/award/cannes-director"/>
-            <screeningRef iri="http://example.org/screening/drive-hydro"/>
+            <awardRef iri="http://example.org/data/best-director-award"/>
+            <screeningRef iri="http://example.org/data/screening-hydropark"/>
         </movie>
-        <movie iri="http://example.org/movie/br2049">
+        <movie iri="http://example.org/data/blade-runner-2049">
             <name xml:lang="en">Blade Runner 2049</name>
-            <label xml:lang="en">Blade Runner 2049 (2017)</label>
+            <label xml:lang="en">Blade Runner 2049</label>
             <durationMinutes>164</durationMinutes>
             <datePublished>2017</datePublished>
-            <awardRef iri="http://example.org/award/oscar-cinem"/>
-            <screeningRef iri="http://example.org/screening/br2049-slov"/>
+            <awardRef iri="http://example.org/data/oscar-cinematography"/>
+            <screeningRef iri="http://example.org/data/screening-slovansky-dum"/>
         </movie>
-        <movie iri="http://example.org/movie/lalaland">
+        <movie iri="http://example.org/data/la-la-land">
             <name xml:lang="en">La La Land</name>
-            <label xml:lang="en">La La Land (2016)</label>
+            <label xml:lang="en">La La Land</label>
             <durationMinutes>128</durationMinutes>
             <datePublished>2016</datePublished>
-            <awardRef iri="http://example.org/award/oscar-actress"/>
-            <screeningRef iri="http://example.org/screening/lalaland-guliver"/>
+            <awardRef iri="http://example.org/data/oscar-actress"/>
+            <screeningRef iri="http://example.org/data/screening-guliver"/>
         </movie>
     </movies>
 
     <screenings>
-        <screening iri="http://example.org/screening/drive-hydro">
-            <name xml:lang="en">Drive screening at Hydropark</name>
-            <label xml:lang="en">Screening: Drive</label>
+        <screening iri="http://example.org/data/screening-hydropark">
+            <name xml:lang="en">Hydropark Screening</name>
+            <label xml:lang="en">Drive screening at Hydropark</label>
             <startDate>2011-11-11T16:30:00</startDate>
-            <movieRef iri="http://example.org/movie/drive"/>
-            <locationRef iri="http://example.org/place/hydropark"/>
+            <movieRef iri="http://example.org/data/drive"/>
+            <locationRef iri="http://example.org/data/location-hydropark"/>
         </screening>
-        <screening iri="http://example.org/screening/br2049-slov">
-            <name xml:lang="en">Blade Runner 2049 screening at Slovansky dum</name>
-            <label xml:lang="en">Screening: Blade Runner 2049</label>
+        <screening iri="http://example.org/data/screening-slovansky-dum">
+            <name xml:lang="en">Slovansky dum Screening</name>
+            <label xml:lang="en">Blade Runner 2049 screening at Slovansky dum</label>
             <startDate>2017-07-16T21:00:00</startDate>
-            <movieRef iri="http://example.org/movie/br2049"/>
-            <locationRef iri="http://example.org/place/slovanskydum"/>
+            <movieRef iri="http://example.org/data/blade-runner-2049"/>
+            <locationRef iri="http://example.org/data/location-slovansky-dum"/>
         </screening>
-        <screening iri="http://example.org/screening/lalaland-guliver">
-            <name xml:lang="en">La La Land screening at Guliver</name>
-            <label xml:lang="en">Screening: La La Land</label>
+        <screening iri="http://example.org/data/screening-guliver">
+            <name xml:lang="en">Guliver Screening</name>
+            <label xml:lang="en">La La Land screening at Guliver</label>
             <startDate>2016-05-27T12:15:00</startDate>
-            <movieRef iri="http://example.org/movie/lalaland"/>
-            <locationRef iri="http://example.org/place/guliver"/>
+            <movieRef iri="http://example.org/data/la-la-land"/>
+            <locationRef iri="http://example.org/data/location-guliver"/>
         </screening>
     </screenings>
 
     <places>
-        <place iri="http://example.org/place/hydropark">
+        <place iri="http://example.org/data/location-hydropark">
             <label xml:lang="en">Hydropark</label>
         </place>
-        <place iri="http://example.org/place/slovanskydum">
+        <place iri="http://example.org/data/location-slovansky-dum">
             <label xml:lang="en">Slovansky dum</label>
         </place>
-        <place iri="http://example.org/place/guliver">
+        <place iri="http://example.org/data/location-guliver">
             <label xml:lang="en">Guliver</label>
         </place>
     </places>
 
     <awards>
-        <award iri="http://example.org/award/cannes-director">
+        <award iri="http://example.org/data/best-director-award">
             <name xml:lang="en">Best Director Award</name>
-            <label xml:lang="en">Cannes Best Director</label>
+            <label xml:lang="en">Best Director Award</label>
             <prizeMoney>10000</prizeMoney>
-            <movieRef iri="http://example.org/movie/drive"/>
+            <movieRef iri="http://example.org/data/drive"/>
         </award>
-        <award iri="http://example.org/award/oscar-cinem">
+        <award iri="http://example.org/data/oscar-cinematography">
             <name xml:lang="en">Oscar Best Cinematography</name>
-            <label xml:lang="en">Academy Award: Cinematography</label>
+            <label xml:lang="en">Oscar Best Cinematography</label>
             <prizeMoney>15000</prizeMoney>
-            <movieRef iri="http://example.org/movie/br2049"/>
+            <movieRef iri="http://example.org/data/blade-runner-2049"/>
         </award>
-        <award iri="http://example.org/award/oscar-actress">
+        <award iri="http://example.org/data/oscar-actress">
             <name xml:lang="en">Oscar Best Actress</name>
-            <label xml:lang="en">Academy Award: Best Actress</label>
+            <label xml:lang="en">Oscar Best Actress</label>
             <prizeMoney>20000</prizeMoney>
-            <movieRef iri="http://example.org/movie/lalaland"/>
+            <movieRef iri="http://example.org/data/la-la-land"/>
         </award>
     </awards>
 
