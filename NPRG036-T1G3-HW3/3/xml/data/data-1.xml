@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<festivalSchedule xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+                  xsi:noNamespaceSchemaLocation="../schemas/schema-1.xsd">
+
+    <movies>
+        <movie iri="http://example.org/movie/drive">
+            <name xml:lang="en">Drive</name>
+            <label xml:lang="en">Drive (2011)</label>
+            <durationMinutes>100</durationMinutes>
+            <datePublished>2011</datePublished>
+            <awardRef iri="http://example.org/award/cannes-director"/>
+            <screeningRef iri="http://example.org/screening/drive-hydro"/>
+        </movie>
+        <movie iri="http://example.org/movie/br2049">
+            <name xml:lang="en">Blade Runner 2049</name>
+            <label xml:lang="en">Blade Runner 2049 (2017)</label>
+            <durationMinutes>164</durationMinutes>
+            <datePublished>2017</datePublished>
+            <awardRef iri="http://example.org/award/oscar-cinem"/>
+            <screeningRef iri="http://example.org/screening/br2049-slov"/>
+        </movie>
+        <movie iri="http://example.org/movie/lalaland">
+            <name xml:lang="en">La La Land</name>
+            <label xml:lang="en">La La Land (2016)</label>
+            <durationMinutes>128</durationMinutes>
+            <datePublished>2016</datePublished>
+            <awardRef iri="http://example.org/award/oscar-actress"/>
+            <screeningRef iri="http://example.org/screening/lalaland-guliver"/>
+        </movie>
+    </movies>
+
+    <screenings>
+        <screening iri="http://example.org/screening/drive-hydro">
+            <name xml:lang="en">Drive screening at Hydropark</name>
+            <label xml:lang="en">Screening: Drive</label>
+            <startDate>2011-11-11T16:30:00</startDate>
+            <movieRef iri="http://example.org/movie/drive"/>
+            <locationRef iri="http://example.org/place/hydropark"/>
+        </screening>
+        <screening iri="http://example.org/screening/br2049-slov">
+            <name xml:lang="en">Blade Runner 2049 screening at Slovansky dum</name>
+            <label xml:lang="en">Screening: Blade Runner 2049</label>
+            <startDate>2017-07-16T21:00:00</startDate>
+            <movieRef iri="http://example.org/movie/br2049"/>
+            <locationRef iri="http://example.org/place/slovanskydum"/>
+        </screening>
+        <screening iri="http://example.org/screening/lalaland-guliver">
+            <name xml:lang="en">La La Land screening at Guliver</name>
+            <label xml:lang="en">Screening: La La Land</label>
+            <startDate>2016-05-27T12:15:00</startDate>
+            <movieRef iri="http://example.org/movie/lalaland"/>
+            <locationRef iri="http://example.org/place/guliver"/>
+        </screening>
+    </screenings>
+
+    <places>
+        <place iri="http://example.org/place/hydropark">
+            <label xml:lang="en">Hydropark</label>
+        </place>
+        <place iri="http://example.org/place/slovanskydum">
+            <label xml:lang="en">Slovansky dum</label>
+        </place>
+        <place iri="http://example.org/place/guliver">
+            <label xml:lang="en">Guliver</label>
+        </place>
+    </places>
+
+    <awards>
+        <award iri="http://example.org/award/cannes-director">
+            <name xml:lang="en">Best Director Award</name>
+            <label xml:lang="en">Cannes Best Director</label>
+            <prizeMoney>10000</prizeMoney>
+            <movieRef iri="http://example.org/movie/drive"/>
+        </award>
+        <award iri="http://example.org/award/oscar-cinem">
+            <name xml:lang="en">Oscar Best Cinematography</name>
+            <label xml:lang="en">Academy Award: Cinematography</label>
+            <prizeMoney>15000</prizeMoney>
+            <movieRef iri="http://example.org/movie/br2049"/>
+        </award>
+        <award iri="http://example.org/award/oscar-actress">
+            <name xml:lang="en">Oscar Best Actress</name>
+            <label xml:lang="en">Academy Award: Best Actress</label>
+            <prizeMoney>20000</prizeMoney>
+            <movieRef iri="http://example.org/movie/lalaland"/>
+        </award>
+    </awards>
+
+</festivalSchedule>
