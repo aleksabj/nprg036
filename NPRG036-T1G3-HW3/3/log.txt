@@ -1,0 +1,47 @@
+HW2 RDF Fix & Canonical Vocabulary (data-fixed.ttl)
+Creators: Aleksa
+Verifiers: Vlad, Disha, Glauk, Tonya
+
+XML Schemas & XML Instance Data
+Creators: Vlad
+Verifiers: Aleksa, Disha, Tonya
+
+XPath Queries & XML → HTML Transformation
+Creators: Vlad
+Verifiers: Aleksa, Disha
+
+XML Validation (XML, XSD, HTML)
+Creators: Vlad
+Verifiers: Tonya
+
+XSLT → RDF Transformations (XML → RDF Turtle “lifting”)
+Creators: Disha
+Verifiers: Aleksa, Vlad
+
+RDF Output from XML & Validation with Apache Jena (riot)
+Creators: Disha
+Verifiers: Tonya, Aleksa
+
+Technical Consistency Across Formats & log.txt Maintenance
+Creators: Disha
+Verifiers: Aleksa, Vlad, Glauk, Tonya
+
+JSON Schemas & JSON-LD Data with Embedded Context
+Creators: Glauk
+Verifiers: Aleksa, Tonya
+
+JSON-LD → RDF Mapping & Equivalence to HW2
+Creators: Glauk
+Verifiers: Disha, Tonya
+
+jq Queries & JSON Validation Pipelines
+Creators: Glauk
+Verifiers: Vlad, Aleksa
+
+SHACL Shapes & RDF Validation
+Creators: Tonya
+Verifiers: Disha, Glauk
+
+Final Packaging, README & ZIP Submission
+Creators: Tonya
+Verifiers: Aleksa, Vlad, Disha, Glauk
