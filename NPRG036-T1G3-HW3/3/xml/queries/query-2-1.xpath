@@ -1,0 +1,4 @@
+(: Select movies that have at least one scheduled screening :)
+/festivalSchedule/movies/movie[
+    @iri = /festivalSchedule/screenings/screening/movieRef/@iri
+]/label

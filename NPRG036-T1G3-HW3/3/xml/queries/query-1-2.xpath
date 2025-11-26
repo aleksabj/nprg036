@@ -1,4 +1,2 @@
-(: Select screenings where the startDate is greater than 2015 :)
-/festivalSchedule/screenings/screening[
-    number(substring(startDate, 1, 4)) > 2015
-]/label
+(: Calculates the total sum of all prize money in the festival :)
+sum(/festivalSchedule/awards/award/prizeMoney)

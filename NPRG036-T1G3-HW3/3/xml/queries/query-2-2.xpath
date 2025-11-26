@@ -1,0 +1,4 @@
+(: Select movies published after 2015:)
+/festivalSchedule/movies/movie[
+    number(substring(datePublished, 1, 4)) > 2015
+]/label

@@ -1,6 +1,4 @@
-(:Selects movies screened at the location Slovansky dum:)
+(: Select movies that have won an award with prize money more than 12,000 :)
 /festivalSchedule/movies/movie[
-    @iri = /festivalSchedule/screenings/screening[
-        locationRef/@iri = /festivalSchedule/places/place[label = 'Slovansky dum']/@iri
-    ]/movieRef/@iri
-]/name
+    @iri = /festivalSchedule/awards/award[prizeMoney > 12000]/movieRef/@iri
+]/label
