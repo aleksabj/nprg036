@@ -1,46 +1,58 @@
-HW2 RDF Fix & Canonical Vocabulary (data-fixed.ttl)
+HW2 RDF Fix and Canonical Vocabulary
 Creators: Aleksa
 Verifiers: Vlad, Disha, Glauk, Tonya
 
-XML Schemas & XML Instance Data
+Hierarchical Models (Design of XML/JSON hierarchies)
+Creators: Aleksa, Tonya
+Verifiers: Vlad, Disha, Glauk
+
+XML Schemas
+Creators: Aleksa, Vlad
+Verifiers: Disha, Tonya, Glauk
+
+XML Data Instances
 Creators: Vlad
 Verifiers: Aleksa, Disha, Tonya
 
-XPath Queries & XML → HTML Transformation
+XPath Queries
 Creators: Vlad
 Verifiers: Aleksa, Disha
 
-XML Validation (XML, XSD, HTML)
-Creators: Vlad
-Verifiers: Tonya
+XML -> HTML Transformation
+Creators: Vlad, Tonya
+Verifiers: Aleksa, Disha
 
-XSLT → RDF Transformations (XML → RDF Turtle “lifting”)
+XML Validation (XSD, XML, HTML)
+Creators: Tonya
+Verifiers: Vlad, Aleksa
+
+XSLT -> RDF Transformations 
 Creators: Disha
 Verifiers: Aleksa, Vlad
 
-RDF Output from XML & Validation with Apache Jena (riot)
+RDF Output from XML and Validation with Apache Jena
 Creators: Disha
 Verifiers: Tonya, Aleksa
 
-Technical Consistency Across Formats & log.txt Maintenance
+Technical Consistency Across Formats and Internal Review
 Creators: Disha
 Verifiers: Aleksa, Vlad, Glauk, Tonya
 
-JSON Schemas & JSON-LD Data with Embedded Context
+JSON Schemas
+Creators: Aleksa, Glauk
+Verifiers: Tonya
+
+JSON-LD Data and Context
 Creators: Glauk
 Verifiers: Aleksa, Tonya
 
-JSON-LD → RDF Mapping & Equivalence to HW2
+JSON-LD -> RDF Mapping
 Creators: Glauk
 Verifiers: Disha, Tonya
 
-jq Queries & JSON Validation Pipelines
+jq Queries
 Creators: Glauk
 Verifiers: Vlad, Aleksa
-
-SHACL Shapes & RDF Validation
-Creators: Tonya
-Verifiers: Disha, Glauk
 
 Final Packaging, README & ZIP Submission
 Creators: Tonya
