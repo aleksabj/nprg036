@@ -1,1 +1,0 @@
-Validated 3/rdf/data-1.ttl with Apache Jena riot (./bin/riot --validate …), no errors reported.

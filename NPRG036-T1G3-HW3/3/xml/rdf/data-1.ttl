@@ -1,0 +1,117 @@
+
+@prefix ex:      <http://example.org/vocabulary/> .
+@prefix data:    <http://example.org/data/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema:  <http://schema.org/> .
+
+
+
+<http://example.org/data/drive> a schema:Movie ;
+  schema:name "Drive"@en ;
+  rdfs:label "Drive"@en ;
+  ex:durationMinutes 100 ;
+  schema:datePublished "2011"^^xsd:gYear .
+
+
+
+
+<http://example.org/data/blade-runner-2049> a schema:Movie ;
+  schema:name "Blade Runner 2049"@en ;
+  rdfs:label "Blade Runner 2049"@en ;
+  ex:durationMinutes 164 ;
+  schema:datePublished "2017"^^xsd:gYear .
+
+
+
+
+<http://example.org/data/la-la-land> a schema:Movie ;
+  schema:name "La La Land"@en ;
+  rdfs:label "La La Land"@en ;
+  ex:durationMinutes 128 ;
+  schema:datePublished "2016"^^xsd:gYear .
+
+
+
+
+<http://example.org/data/screening-hydropark> a schema:ScreeningEvent ;
+  schema:name "Hydropark Screening"@en ;
+  rdfs:label "Drive screening at Hydropark"@en ;
+  schema:startDate "2011-11-11T16:30:00"^^xsd:dateTime ;
+  schema:location <http://example.org/data/location-hydropark> ;
+  ex:showsFilm <http://example.org/data/drive> .
+
+
+
+
+<http://example.org/data/screening-slovansky-dum> a schema:ScreeningEvent ;
+  schema:name "Slovansky dum Screening"@en ;
+  rdfs:label "Blade Runner 2049 screening at Slovansky dum"@en ;
+  schema:startDate "2017-07-16T21:00:00"^^xsd:dateTime ;
+  schema:location <http://example.org/data/location-slovansky-dum> ;
+  ex:showsFilm <http://example.org/data/blade-runner-2049> .
+
+
+
+
+<http://example.org/data/screening-guliver> a schema:ScreeningEvent ;
+  schema:name "Guliver Screening"@en ;
+  rdfs:label "La La Land screening at Guliver"@en ;
+  schema:startDate "2016-05-27T12:15:00"^^xsd:dateTime ;
+  schema:location <http://example.org/data/location-guliver> ;
+  ex:showsFilm <http://example.org/data/la-la-land> .
+
+
+
+
+<http://example.org/data/location-hydropark> a schema:Place ;
+  rdfs:label "Hydropark"@en .
+
+
+
+
+<http://example.org/data/location-slovansky-dum> a schema:Place ;
+  rdfs:label "Slovansky dum"@en .
+
+
+
+
+<http://example.org/data/location-guliver> a schema:Place ;
+  rdfs:label "Guliver"@en .
+
+
+
+
+<http://example.org/data/best-director-award> a ex:Award ;
+  schema:name "Best Director Award"@en ;
+  rdfs:label "Best Director Award"@en ;
+  ex:prizeMoney "10000"^^xsd:decimal ;
+  ex:awardedTo <http://example.org/data/drive> .
+
+<http://example.org/data/drive> ex:hasAward <http://example.org/data/best-director-award> .
+
+
+
+
+<http://example.org/data/oscar-cinematography> a ex:Award ;
+  schema:name "Oscar Best Cinematography"@en ;
+  rdfs:label "Oscar Best Cinematography"@en ;
+  ex:prizeMoney "15000"^^xsd:decimal ;
+  ex:awardedTo <http://example.org/data/blade-runner-2049> .
+
+<http://example.org/data/blade-runner-2049> ex:hasAward <http://example.org/data/oscar-cinematography> .
+
+
+
+
+<http://example.org/data/oscar-actress> a ex:Award ;
+  schema:name "Oscar Best Actress"@en ;
+  rdfs:label "Oscar Best Actress"@en ;
+  ex:prizeMoney "20000"^^xsd:decimal ;
+  ex:awardedTo <http://example.org/data/la-la-land> .
+
+<http://example.org/data/la-la-land> ex:hasAward <http://example.org/data/oscar-actress> .
+
+
+
