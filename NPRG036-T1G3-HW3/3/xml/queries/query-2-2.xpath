@@ -1,4 +1,5 @@
-(: Select movies published after 2015:)
-/festivalSchedule/movies/movie[
-    number(substring(datePublished, 1, 4)) > 2015
+(: Directors born after 1960 who worked with an actor born before 1950 :)
+/people/directors/director[
+    birthYear > 1960 and
+    movieRef/@iri = /people/actors/actor[birthYear < 1950]/movieRef/@iri
 ]/label

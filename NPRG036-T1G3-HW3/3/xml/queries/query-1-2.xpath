@@ -1,2 +1,6 @@
-(: Calculates the total sum of all prize money in the festival :)
-sum(/festivalSchedule/awards/award/prizeMoney)
+(: Sum of prize money for movies screened after 2015 :)
+sum(/festivalSchedule/awards/award[
+    movieRef/@iri = /festivalSchedule/screenings/screening[
+        substring(startDate, 1, 4) > '2015'
+    ]/movieRef/@iri
+]/prizeMoney)

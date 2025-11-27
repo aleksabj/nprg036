@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people xmlns:xsi="http://www.w3.org/2001/XMLSchema"
+    xsi:noNamespaceSchemaLocation="../schemas/schema-2.xsd">
+
+    <actors>
+        <actor iri="http://example.org/data/ryan-gosling">
+            <label xml:lang="en">Ryan Gosling</label>
+            <birthYear>1980</birthYear>
+            <phone iri="tel:+1-608-266-732" />
+            <movieRef iri="http://example.org/data/blade-runner-2049" />
+        </actor>
+        <actor iri="http://example.org/data/emma-stone">
+            <label xml:lang="en">Emma Stone</label>
+            <birthYear>1988</birthYear>
+            <phone iri="tel:+1-793-264-092" />
+            <movieRef iri="http://example.org/data/la-la-land" />
+        </actor>
+        <actor iri="http://example.org/data/harrison-ford">
+            <label xml:lang="en">Harrison Ford</label>
+            <birthYear>1942</birthYear>
+            <phone iri="tel:+1-608-111-808" />
+            <movieRef iri="http://example.org/data/blade-runner-2049" />
+        </actor>
+    </actors>
+
+    <directors>
+        <director iri="http://example.org/data/denis-villeneuve">
+            <label xml:lang="en">Denis Villeneuve</label>
+            <birthYear>1967</birthYear>
+            <phone iri="tel:+1-853-945-839" />
+            <movieRef iri="http://example.org/data/blade-runner-2049" />
+        </director>
+        <director iri="http://example.org/data/nicolas-winding-refn">
+            <label xml:lang="en">Nicolas Winding Refn</label>
+            <birthYear>1970</birthYear>
+            <phone iri="tel:+1-324-266-793" />
+            <movieRef iri="http://example.org/data/drive" />
+        </director>
+        <director iri="http://example.org/data/damien-chazelle">
+            <label xml:lang="en">Damien Chazelle</label>
+            <birthYear>1985</birthYear>
+            <phone iri="tel:+1-063-853-354" />
+            <movieRef iri="http://example.org/data/la-la-land" />
+        </director>
+    </directors>
+
+</people>

@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:xml="http://www.w3.org/XML/1998/namespace"
-           elementFormDefault="qualified"
-           attributeFormDefault="unqualified">
+  xmlns:xml="http://www.w3.org/XML/1998/namespace"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+    schemaLocation="http://www.w3.org/2001/xml.xsd" />
 
   <!-- A string with a required xml:lang attribute -->
   <xs:complexType name="LangString">
     <xs:simpleContent>
       <xs:extension base="xs:string">
-        <xs:attribute ref="xml:lang" use="required"/>
+        <xs:attribute ref="xml:lang" use="required" />
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
 
   <!-- Generic reference by IRI -->
   <xs:complexType name="RefType">
-    <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="iri" type="xs:anyURI" use="required" />
   </xs:complexType>
 
   <!-- Root element: FestivalSchedule -->
   <xs:element name="festivalSchedule">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="movies" type="MoviesType" minOccurs="1"/>
-        <xs:element name="screenings" type="ScreeningsType" minOccurs="1"/>
-        <xs:element name="places" type="PlacesType" minOccurs="1"/>
-        <xs:element name="awards" type="AwardsType" minOccurs="1"/>
+        <xs:element name="movies" type="MoviesType" minOccurs="1" />
+        <xs:element name="screenings" type="ScreeningsType" minOccurs="1" />
+        <xs:element name="places" type="PlacesType" minOccurs="1" />
+        <xs:element name="awards" type="AwardsType" minOccurs="1" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,76 +37,76 @@
   <!-- Movies collection -->
   <xs:complexType name="MoviesType">
     <xs:sequence>
-      <xs:element name="movie" type="MovieType" maxOccurs="unbounded"/>
+      <xs:element name="movie" type="MovieType" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
   <!-- Movie -->
   <xs:complexType name="MovieType">
     <xs:sequence>
-      <xs:element name="name" type="LangString"/>
-      <xs:element name="label" type="LangString" minOccurs="0"/>
-      <xs:element name="durationMinutes" type="xs:integer"/>
-      <xs:element name="datePublished" type="xs:gYear"/>
+      <xs:element name="name" type="LangString" />
+      <xs:element name="label" type="LangString" minOccurs="0" />
+      <xs:element name="durationMinutes" type="xs:integer" />
+      <xs:element name="datePublished" type="xs:gYear" />
       <!-- references by IRI -->
-      <xs:element name="awardRef" type="RefType" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="screeningRef" type="RefType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="awardRef" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="screeningRef" type="RefType" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
-    <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="iri" type="xs:anyURI" use="required" />
   </xs:complexType>
 
   <!-- Screenings collection -->
   <xs:complexType name="ScreeningsType">
     <xs:sequence>
-      <xs:element name="screening" type="ScreeningType" maxOccurs="unbounded"/>
+      <xs:element name="screening" type="ScreeningType" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
   <!-- ScreeningEvent -->
   <xs:complexType name="ScreeningType">
     <xs:sequence>
-      <xs:element name="name" type="LangString"/>
-      <xs:element name="label" type="LangString" minOccurs="0"/>
-      <xs:element name="startDate" type="xs:dateTime"/>
+      <xs:element name="name" type="LangString" />
+      <xs:element name="label" type="LangString" minOccurs="0" />
+      <xs:element name="startDate" type="xs:dateTime" />
       <!-- references -->
-      <xs:element name="movieRef" type="RefType"/>
-      <xs:element name="locationRef" type="RefType"/>
+      <xs:element name="movieRef" type="RefType" />
+      <xs:element name="locationRef" type="RefType" />
     </xs:sequence>
-    <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="iri" type="xs:anyURI" use="required" />
   </xs:complexType>
 
   <!-- Places collection -->
   <xs:complexType name="PlacesType">
     <xs:sequence>
-      <xs:element name="place" type="PlaceType" maxOccurs="unbounded"/>
+      <xs:element name="place" type="PlaceType" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
   <!-- Place -->
   <xs:complexType name="PlaceType">
     <xs:sequence>
-      <xs:element name="label" type="LangString"/>
+      <xs:element name="label" type="LangString" />
     </xs:sequence>
-    <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="iri" type="xs:anyURI" use="required" />
   </xs:complexType>
 
   <!-- Awards collection -->
   <xs:complexType name="AwardsType">
     <xs:sequence>
-      <xs:element name="award" type="AwardType" maxOccurs="unbounded"/>
+      <xs:element name="award" type="AwardType" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 
   <!-- Award -->
   <xs:complexType name="AwardType">
     <xs:sequence>
-      <xs:element name="name" type="LangString"/>
-      <xs:element name="label" type="LangString" minOccurs="0"/>
-      <xs:element name="prizeMoney" type="xs:decimal"/>
+      <xs:element name="name" type="LangString" />
+      <xs:element name="label" type="LangString" minOccurs="0" />
+      <xs:element name="prizeMoney" type="xs:decimal" />
       <!-- reference to the awarded movie -->
-      <xs:element name="movieRef" type="RefType"/>
+      <xs:element name="movieRef" type="RefType" />
     </xs:sequence>
-    <xs:attribute name="iri" type="xs:anyURI" use="required"/>
+    <xs:attribute name="iri" type="xs:anyURI" use="required" />
   </xs:complexType>
 
 </xs:schema>

@@ -1,4 +1,6 @@
-(: Select movies that have won an award with prize money more than 12,000 :)
-/festivalSchedule/movies/movie[
-    @iri = /festivalSchedule/awards/award[prizeMoney > 12000]/movieRef/@iri
+(: Select labels of places where awarded movies are screened :)
+/festivalSchedule/places/place[
+    @iri = /festivalSchedule/screenings/screening[
+        movieRef/@iri = /festivalSchedule/awards/award/movieRef/@iri
+    ]/locationRef/@iri
 ]/label

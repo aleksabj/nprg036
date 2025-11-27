@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+        schemaLocation="http://www.w3.org/2001/xml.xsd" />
+
+    <xs:complexType name="LangString">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="xml:lang" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="RefType">
+        <xs:attribute name="iri" type="xs:anyURI" use="required" />
+    </xs:complexType>
+
+    <xs:element name="people">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="actors" type="ActorsType" minOccurs="0" />
+                <xs:element name="directors" type="DirectorsType" minOccurs="0" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="ActorsType">
+        <xs:sequence>
+            <xs:element name="actor" type="ActorType" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DirectorsType">
+        <xs:sequence>
+            <xs:element name="director" type="DirectorType" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ActorType">
+        <xs:sequence>
+            <xs:element name="label" type="LangString" />
+            <xs:element name="birthYear" type="xs:gYear" />
+            <xs:element name="phone" type="RefType" />
+            <xs:element name="movieRef" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="iri" type="xs:anyURI" use="required" />
+    </xs:complexType>
+
+    <xs:complexType name="DirectorType">
+        <xs:sequence>
+            <xs:element name="label" type="LangString" />
+            <xs:element name="birthYear" type="xs:gYear" />
+            <xs:element name="phone" type="RefType" />
+            <xs:element name="movieRef" type="RefType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="iri" type="xs:anyURI" use="required" />
+    </xs:complexType>
+
+</xs:schema>
