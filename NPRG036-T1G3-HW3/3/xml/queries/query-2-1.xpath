@@ -1,4 +1,4 @@
 (: Actors who played in a movie directed by Denis Villeneuve :)
-/people/actors/actor[
-    movieRef/@iri = /people/directors/director[label = 'Denis Villeneuve']/movieRef/@iri
-]/label
+/people/person[roles/role = 'Actor'][
+    actsIn/movie = /people/person[roles/role = 'Director'][name = 'Denis Villeneuve']/directed/movie
+]/name

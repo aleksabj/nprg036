@@ -6,33 +6,20 @@
     <xsl:output method="html" indent="yes" encoding="UTF-8" />
 
     <xsl:key name="kAwardsByMovie" match="award" use="movieRef/@iri" />
-
     <xsl:key name="kScreeningsByMovie" match="screening" use="movieRef/@iri" />
-
     <xsl:key name="kPlacesByIri" match="place" use="@iri" />
 
     <xsl:template match="/festivalSchedule">
         <html>
             <head>
-                <title>Festival Program Dashboard</title>
+                <title>Festival Program</title>
                 <style>
                     body {
-                    font-family: 'Times New Roman';
-                    margin: 2rem;
-                    background: #f4f4f9;
-                    color: #333;
+                    font-family: Times New Roman, sans-serif;
+                    margin: 20px;
                     }
                     h1 {
-                    color: #2c3e50;
-                    border-bottom: 3px solid #3498db;
-                    padding-bottom: 10px;
-                    display: inline-block;
-                    }
-                    .container {
-                    background: white;
-                    padding: 20px;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                    border-radius: 8px;
+                    color: #333;
                     }
                     table {
                     width: 100%;
@@ -40,33 +27,15 @@
                     margin-top: 20px;
                     }
                     th {
-                    background-color: #2c3e50;
-                    color: white;
-                    padding: 12px;
+                    background-color: #ddd;
+                    padding: 8px;
                     text-align: left;
+                    border: 1px solid #999;
                     }
                     td {
-                    border-bottom: 1px solid #ddd;
-                    padding: 12px;
+                    border: 1px solid #999;
+                    padding: 8px;
                     vertical-align: top;
-                    }
-                    tr:hover {
-                    background-color: #f1f1f1;
-                    }
-                    .badge {
-                    display: inline-block;
-                    padding: 3px 8px;
-                    border-radius: 12px;
-                    font-size: 0.8em;
-                    font-weight: bold;
-                    }
-                    .badge-year {
-                    background-color: #e2e6ea;
-                    color: #555;
-                    }
-                    .badge-money {
-                    background-color: #d4edda;
-                    color: #155724;
                     }
                     ul {
                     margin: 0;
@@ -75,108 +44,102 @@
                     li {
                     margin-bottom: 4px;
                     }
-                    .screening-date {
-                    font-weight: bold;
-                    color: #e67e22;
-                    }
-                    .location {
-                    font-style: italic;
-                    color: #7f8c8d;
-                    }
                 </style>
             </head>
             <body>
-                <div class="container">
-                    <h1>Festival Program Schedule</h1>
-                    <p>Generated Report: Movie Screenings and Awards</p>
+                <h1>Festival Program Schedule</h1>
+                <p>Movie Screenings and Awards</p>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 25%">Movie</th>
-                                <th style="width: 15%">Details</th>
-                                <th style="width: 30%">Awards Won</th>
-                                <th style="width: 30%">Upcoming Screenings</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <xsl:for-each select="movies/movie">
-                                <xsl:sort select="name" />
-
-                                <tr>
-                                    <td>
-                                        <strong>
-                                            <xsl:value-of select="name" />
-                                        </strong>
-                                        <br />
-                                        <span style="color: #666; font-size: 0.9em;">
-                                            <xsl:value-of select="label" />
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-year">
-                                            <xsl:value-of select="datePublished" />
-                                        </span>
-                                        <br />
-                                        <span style="font-size: 0.9em;">
-                                            <xsl:value-of select="durationMinutes" /> mins </span>
-                                    </td>
-                                    <td>
-                                        <xsl:variable name="currentMovieIri" select="@iri" />
-                                        <xsl:choose>
-                                            <xsl:when test="key('kAwardsByMovie', $currentMovieIri)">
-                                                <ul>
-                                                    <xsl:for-each
-                                                        select="key('kAwardsByMovie', $currentMovieIri)">
-                                                        <li>
-                                                            <xsl:value-of select="name" />
-                                                            <br />
-                                                            <span class="badge badge-money"> €<xsl:value-of
-                                                                    select="prizeMoney" />
-                                                            </span>
-                                                        </li>
-                                                    </xsl:for-each>
-                                                </ul>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <em style="color: #aaa">No awards listed</em>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                    <td>
-                                        <xsl:choose>
-                                            <xsl:when
-                                                test="key('kScreeningsByMovie', $currentMovieIri)">
-                                                <ul>
-                                                    <xsl:for-each
-                                                        select="key('kScreeningsByMovie', $currentMovieIri)">
-                                                        <li>
-                                                            <span class="screening-date">
-                                                                <xsl:value-of
-                                                                    select="substring(startDate, 1, 10)" />
-                                                                (<xsl:value-of
-                                                                    select="substring(startDate, 12, 5)" />
-                                                                ) </span>
-                                                            <br />
-                                                            <span class="location"> @ <xsl:value-of
-                                                                    select="key('kPlacesByIri', locationRef/@iri)/label" />
-                                                            </span>
-                                                        </li>
-                                                    </xsl:for-each>
-                                                </ul>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <em style="color: #aaa">Not scheduled</em>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </td>
-                                </tr>
-                            </xsl:for-each>
-                        </tbody>
-                    </table>
-                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Details</th>
+                            <th>Awards Won</th>
+                            <th>Screenings</th>
+                            <th>Place</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <xsl:apply-templates select="movies/movie">
+                            <xsl:sort select="name" />
+                        </xsl:apply-templates>
+                    </tbody>
+                </table>
             </body>
         </html>
+    </xsl:template>
+
+    <xsl:template match="movie">
+        <tr>
+            <td>
+                <xsl:value-of select="name" />
+            </td>
+            <td>
+                <xsl:value-of select="datePublished" />
+                <br />
+                <xsl:value-of select="durationMinutes" />
+                mins </td>
+            <td>
+                <xsl:variable name="currentMovieIri" select="@iri" />
+                <xsl:choose>
+                    <xsl:when test="key('kAwardsByMovie', $currentMovieIri)">
+                        <ul>
+                            <xsl:apply-templates select="key('kAwardsByMovie', $currentMovieIri)" />
+                        </ul>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        No awards
+                    </xsl:otherwise>
+                </xsl:choose>
+            </td>
+            <td>
+                <xsl:variable name="currentMovieIri" select="@iri" />
+                <xsl:choose>
+                    <xsl:when test="key('kScreeningsByMovie', $currentMovieIri)">
+                        <ul>
+                            <xsl:apply-templates
+                                select="key('kScreeningsByMovie', $currentMovieIri)" mode="date" />
+                        </ul>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        Not scheduled
+                    </xsl:otherwise>
+                </xsl:choose>
+            </td>
+            <td>
+                <xsl:variable name="currentMovieIri" select="@iri" />
+                <xsl:choose>
+                    <xsl:when test="key('kScreeningsByMovie', $currentMovieIri)">
+                        <ul>
+                            <xsl:apply-templates
+                                select="key('kScreeningsByMovie', $currentMovieIri)" mode="place" />
+                        </ul>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        -
+                    </xsl:otherwise>
+                </xsl:choose>
+            </td>
+        </tr>
+    </xsl:template>
+
+    <xsl:template match="award">
+        <li>
+            <xsl:value-of select="name" />
+        </li>
+    </xsl:template>
+
+    <xsl:template match="screening" mode="date">
+        <li>
+            <xsl:value-of select="substring(startDate, 1, 10)" /> (<xsl:value-of
+                select="substring(startDate, 12, 5)" />) </li>
+    </xsl:template>
+
+    <xsl:template match="screening" mode="place">
+        <li>
+            <xsl:value-of select="key('kPlacesByIri', locationRef/@iri)/label" />
+        </li>
     </xsl:template>
 
 </xsl:stylesheet>

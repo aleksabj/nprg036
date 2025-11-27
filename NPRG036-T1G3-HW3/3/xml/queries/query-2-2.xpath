@@ -1,5 +1,5 @@
 (: Directors born after 1960 who worked with an actor born before 1950 :)
-/people/directors/director[
+/people/person[roles/role = 'Director'][
     birthYear > 1960 and
-    movieRef/@iri = /people/actors/actor[birthYear < 1950]/movieRef/@iri
-]/label
+    directed/movie = /people/person[roles/role = 'Actor'][birthYear < 1950]/actsIn/movie
+]/name
