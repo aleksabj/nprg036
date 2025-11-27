@@ -19,12 +19,12 @@ Creators: Vlad
 Verifiers: Aleksa, Disha
 
 XML -> HTML Transformation
-Creators: Vlad
+Creators: Vlad, Tonya
 Verifiers: Aleksa, Disha
 
 XML Validation (XSD, XML, HTML)
-Creators: Vlad
-Verifiers: Tonya
+Creators: Tonya
+Verifiers: Vlad, Aleksa
 
 XSLT -> RDF Transformations 
 Creators: Disha
