@@ -1,0 +1,63 @@
+
+@prefix ex:      <http://example.org/vocabulary/> .
+@prefix data:    <http://example.org/data/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema:  <http://schema.org/> .
+
+
+
+<http://example.org/data/ryan-gosling> a ex:Actor ;
+  schema:name "Ryan Gosling"@en ;
+  ex:birthYear "1980"^^xsd:gYear ;
+  ex:phone <tel:+1-608-266-732> ;
+
+  ex:actsIn <http://example.org/data/blade-runner-2049> .
+  
+
+
+<http://example.org/data/emma-stone> a ex:Actor ;
+  schema:name "Emma Stone"@en ;
+  ex:birthYear "1988"^^xsd:gYear ;
+  ex:phone <tel:+1-793-264-092> ;
+
+  ex:actsIn <http://example.org/data/la-la-land> .
+  
+
+
+<http://example.org/data/harrison-ford> a ex:Actor ;
+  schema:name "Harrison Ford"@en ;
+  ex:birthYear "1942"^^xsd:gYear ;
+  ex:phone <tel:+1-608-111-808> ;
+
+  ex:actsIn <http://example.org/data/blade-runner-2049> .
+  
+
+
+<http://example.org/data/denis-villeneuve> a ex:Director ;
+  schema:name "Denis Villeneuve"@en ;
+  ex:birthYear "1967"^^xsd:gYear ;
+  ex:phone <tel:+1-853-945-839> ;
+
+  ex:directs <http://example.org/data/blade-runner-2049> .
+  
+
+
+<http://example.org/data/nicolas-winding-refn> a ex:Director ;
+  schema:name "Nicolas Winding Refn"@en ;
+  ex:birthYear "1970"^^xsd:gYear ;
+  ex:phone <tel:+1-324-266-793> ;
+
+  ex:directs <http://example.org/data/drive> .
+  
+
+
+<http://example.org/data/damien-chazelle> a ex:Director ;
+  schema:name "Damien Chazelle"@en ;
+  ex:birthYear "1985"^^xsd:gYear ;
+  ex:phone <tel:+1-063-853-354> ;
+
+  ex:directs <http://example.org/data/la-la-land> .
+  
+
