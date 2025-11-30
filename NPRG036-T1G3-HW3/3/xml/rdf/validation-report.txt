@@ -1,1 +1,3 @@
 Validated 3/rdf/data-1.ttl with Apache Jena riot (./bin/riot --validate …), no errors reported.
+
+3/rdf/data-2.ttl was also validated with Apache Jena riot with no errors reported.
