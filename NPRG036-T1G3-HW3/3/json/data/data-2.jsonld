@@ -1,80 +1,192 @@
 {
   "@context": {
-    "@language": "en",
-
-    "ex": "http://example.org/vocabulary/",
-    "data": "http://example.org/data/",
-    "schema": "http://schema.org/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-
-    "iri": "@id",
+    "id": "@id",
     "type": "@type",
-
-    "name": { "@id": "rdfs:label" }, 
-    "birthYear":  { "@id": "ex:birthYear", "@type": "xsd:gYear" },
-    "phone": { "@id": "ex:phone", "@type": "@id" },
-
-    "actsIn": { "@id": "ex:actsIn", "@type": "@id" },
-    "directed":   { "@id": "ex:directs", "@type": "@id" },  
-
-    "people": "@graph"
+    "@vocab": "http://example.org/vocabulary/",
+    "ScreeningEvent": "http://schema.org/ScreeningEvent",
+    "Movie": "http://schema.org/Movie",
+    "Place": "http://schema.org/Place",
+    "Actor": "http://example.org/vocabulary/Actor",
+    "Director": "http://example.org/vocabulary/Director",
+    "Award": "http://example.org/vocabulary/Award",
+    "name": {
+      "@id": "http://schema.org/name",
+      "@container": "@language"
+    },
+    "label": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+      "@container": "@language"
+    },
+    "location": {
+      "@id": "http://schema.org/location",
+      "@type": "@id"
+    },
+    "startDate": {
+      "@id": "http://schema.org/startDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "showsFilm": {
+      "@id": "http://example.org/vocabulary/showsFilm",
+      "@type": "@id"
+    },
+    "durationMinutes": {
+      "@id": "http://example.org/vocabulary/durationMinutes",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "datePublished": {
+      "@id": "http://schema.org/datePublished",
+      "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+    },
+    "birthYear": {
+      "@id": "http://example.org/vocabulary/birthYear",
+      "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+    },
+    "phone": {
+      "@id": "http://example.org/vocabulary/phone",
+      "@type": "@id"
+    },
+    "actsIn": {
+      "@id": "http://example.org/vocabulary/actsIn",
+      "@type": "@id"
+    },
+    "directs": {
+      "@id": "http://example.org/vocabulary/directs",
+      "@type": "@id"
+    },
+    "hasAward": {
+      "@id": "http://example.org/vocabulary/hasAward",
+      "@type": "@id"
+    },
+    "prizeMoney": {
+      "@id": "http://example.org/vocabulary/prizeMoney",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "awardedTo": {
+      "@id": "http://example.org/vocabulary/awardedTo",
+      "@type": "@id"
+    }
   },
-
-  "people": [
+  "@graph": [
     {
-      "iri": "data:ryan-gosling",
-      "type": "ex:Actor",
-      "name": "Ryan Gosling",
-      "roles": ["Actor"],
+      "id": "http://example.org/data/ryan-gosling",
+      "type": "Actor",
+      "name": {
+        "en": "Ryan Gosling"
+      },
+      "label": {
+        "en": "Ryan Gosling"
+      },
       "birthYear": "1980",
       "phone": "tel:+1-608-266-732",
-      "actsIn": ["data:blade-runner-2049"]
+      "actsIn": [
+        "http://example.org/data/drive",
+        "http://example.org/data/blade-runner-2049"
+      ]
     },
     {
-      "iri": "data:emma-stone",
-      "type": "ex:Actor",
-      "name": "Emma Stone",
-      "roles": ["Actor"],
-      "birthYear": "1988",
-      "phone": "tel:+1-793-264-092",
-      "actsIn": ["data:la-la-land"]
-    },
-    {
-      "iri": "data:harrison-ford",
-      "type": "ex:Actor",
-      "name": "Harrison Ford",
-      "roles": ["Actor"],
+      "id": "http://example.org/data/harrison-ford",
+      "type": "Actor",
+      "name": {
+        "en": "Harrison Ford"
+      },
+      "label": {
+        "en": "Harrison Ford"
+      },
       "birthYear": "1942",
       "phone": "tel:+1-608-111-808",
-      "actsIn": ["data:blade-runner-2049"]
+      "actsIn": [
+        "http://example.org/data/blade-runner-2049"
+      ]
     },
     {
-      "iri": "data:denis-villeneuve",
-      "type": "ex:Director",
-      "name": "Denis Villeneuve",
-      "roles": ["Director"],
+      "id": "http://example.org/data/emma-stone",
+      "type": "Actor",
+      "name": {
+        "en": "Emma Stone"
+      },
+      "label": {
+        "en": "Emma Stone"
+      },
+      "birthYear": "1988",
+      "phone": "tel:+1-541-433-554",
+      "actsIn": [
+        "http://example.org/data/la-la-land"
+      ]
+    },
+    {
+      "id": "http://example.org/data/nicolas-refn",
+      "type": "Director",
+      "name": {
+        "en": "Nicolas Winding Refn"
+      },
+      "label": {
+        "en": "Nicolas Winding Refn"
+      },
+      "birthYear": "1970",
+      "phone": "tel:+1-583-335-902",
+      "directs": "http://example.org/data/drive"
+    },
+    {
+      "id": "http://example.org/data/denis-villeneuve",
+      "type": "Director",
+      "name": {
+        "en": "Denis Villeneuve"
+      },
+      "label": {
+        "en": "Denis Villeneuve"
+      },
       "birthYear": "1967",
       "phone": "tel:+1-853-945-839",
-      "directed": ["data:blade-runner-2049"]
+      "directs": "http://example.org/data/blade-runner-2049"
     },
     {
-      "iri": "data:nicolas-winding-refn",
-      "type": "ex:Director",
-      "name": "Nicolas Winding Refn",
-      "roles": ["Director"],
-      "birthYear": "1970",
-      "phone": "tel:+1-324-266-793",
-      "directed": ["data:drive"]
-    },
-    {
-      "iri": "data:damien-chazelle",
-      "type": "ex:Director",
-      "name": "Damien Chazelle",
-      "roles": ["Director"],
+      "id": "http://example.org/data/damien-chazelle",
+      "type": "Director",
+      "name": {
+        "en": "Damien Chazelle"
+      },
+      "label": {
+        "en": "Damien Chazelle"
+      },
       "birthYear": "1985",
       "phone": "tel:+1-063-853-354",
-      "directed": ["data:la-la-land"]
+      "directs": "http://example.org/data/la-la-land"
+    },
+    {
+      "id": "http://example.org/data/best-director-award",
+      "type": "Award",
+      "name": {
+        "en": "Best Director Award"
+      },
+      "label": {
+        "en": "Best Director Award"
+      },
+      "prizeMoney": 10000,
+      "awardedTo": "http://example.org/data/drive"
+    },
+    {
+      "id": "http://example.org/data/oscar-cinematography",
+      "type": "Award",
+      "name": {
+        "en": "Oscar Best Cinematography"
+      },
+      "label": {
+        "en": "Oscar Best Cinematography"
+      },
+      "prizeMoney": 15000,
+      "awardedTo": "http://example.org/data/blade-runner-2049"
+    },
+    {
+      "id": "http://example.org/data/oscar-actress",
+      "type": "Award",
+      "name": {
+        "en": "Oscar Best Actress"
+      },
+      "label": {
+        "en": "Oscar Best Actress"
+      },
+      "prizeMoney": 20000,
+      "awardedTo": "http://example.org/data/la-la-land"
     }
   ]
 }
