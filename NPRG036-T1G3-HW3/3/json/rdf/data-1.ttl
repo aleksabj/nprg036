@@ -1,83 +1,61 @@
-PREFIX data:   <http://example.org/data/>
-PREFIX ex:     <http://example.org/vocabulary/>
-PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX schema: <http://schema.org/>
-PREFIX xsd:    <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <http://example.org/vocabulary/>
 
-data:screening-slovansky-dum
-        a                 schema:ScreeningEvent;
-        rdfs:label        "Blade Runner 2049 screening at Slovansky dum"@en;
-        ex:showsFilm      data:blade-runner-2049;
-        schema:location   data:location-slovansky-dum;
-        schema:name       "Slovansky dum Screening"@en;
-        schema:startDate  "2017-10-10T20:00:00Z"^^xsd:dateTime .
+<http://example.org/data/blade-runner-2049>
+        a                         <http://schema.org/Movie>;
+        :durationMinutes          164;
+        :hasAward                 <http://example.org/data/oscar-cinematography>;
+        <http://schema.org/datePublished>  "2017"^^<http://www.w3.org/2001/XMLSchema#gYear>;
+        <http://schema.org/name>  "Blade Runner 2049"@en;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Blade Runner 2049"@en .
 
-data:screening-hydropark
-        a                 schema:ScreeningEvent;
-        rdfs:label        "Drive screening at Hydropark"@en;
-        ex:showsFilm      data:drive;
-        schema:location   data:location-hydropark;
-        schema:name       "Hydropark Screening"@en;
-        schema:startDate  "2011-11-10T20:00:00Z"^^xsd:dateTime .
+<http://example.org/data/drive>
+        a                         <http://schema.org/Movie>;
+        :durationMinutes          100;
+        :hasAward                 <http://example.org/data/best-director-award>;
+        <http://schema.org/datePublished>  "2011"^^<http://www.w3.org/2001/XMLSchema#gYear>;
+        <http://schema.org/name>  "Drive"@en;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Drive"@en .
 
-data:screening-guliver
-        a                 schema:ScreeningEvent;
-        rdfs:label        "La La Land screening at Guliver"@en;
-        ex:showsFilm      data:la-la-land;
-        schema:location   data:location-guliver;
-        schema:name       "Guliver Screening"@en;
-        schema:startDate  "2016-05-27T12:15:00Z"^^xsd:dateTime .
+<http://example.org/data/la-la-land>
+        a                         <http://schema.org/Movie>;
+        :durationMinutes          128;
+        :hasAward                 <http://example.org/data/oscar-actress>;
+        <http://schema.org/datePublished>  "2016"^^<http://www.w3.org/2001/XMLSchema#gYear>;
+        <http://schema.org/name>  "La La Land"@en;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "La La Land"@en .
 
-data:oscar-cinematography
-        a              ex:Award;
-        rdfs:label     "Oscar Best Cinematography"@en;
-        ex:awardedTo   data:blade-runner-2049;
-        ex:prizeMoney  "15000"^^xsd:decimal;
-        schema:name    "Oscar Best Cinematography"@en .
+<http://example.org/data/location-guliver>
+        a       <http://schema.org/Place>;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Guliver"@en .
 
-data:oscar-actress  a  ex:Award;
-        rdfs:label     "Oscar Best Actress"@en;
-        ex:awardedTo   data:la-la-land;
-        ex:prizeMoney  "20000"^^xsd:decimal;
-        schema:name    "Oscar Best Actress"@en .
+<http://example.org/data/location-hydropark>
+        a       <http://schema.org/Place>;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Hydropark"@en .
 
-data:location-slovansky-dum
-        a           schema:Place;
-        rdfs:label  "Slovansky dum"@en .
+<http://example.org/data/location-slovansky-dum>
+        a       <http://schema.org/Place>;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Slovansky dum"@en .
 
-data:location-hydropark
-        a           schema:Place;
-        rdfs:label  "Hydropark"@en .
+<http://example.org/data/screening-guliver>
+        a                              <http://schema.org/ScreeningEvent>;
+        :showsFilm                     <http://example.org/data/la-la-land>;
+        <http://schema.org/location>   <http://example.org/data/location-guliver>;
+        <http://schema.org/name>       "Guliver Screening"@en;
+        <http://schema.org/startDate>  "2016-05-27T12:15:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "La La Land screening at Guliver"@en .
 
-data:location-guliver
-        a           schema:Place;
-        rdfs:label  "Guliver"@en .
+<http://example.org/data/screening-hydropark>
+        a                              <http://schema.org/ScreeningEvent>;
+        :showsFilm                     <http://example.org/data/drive>;
+        <http://schema.org/location>   <http://example.org/data/location-hydropark>;
+        <http://schema.org/name>       "Hydropark Screening"@en;
+        <http://schema.org/startDate>  "2011-05-15T20:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Drive screening at Hydropark"@en .
 
-data:la-la-land  a            schema:Movie;
-        rdfs:label            "La La Land"@en;
-        ex:durationMinutes    128;
-        ex:hasAward           data:oscar-actress;
-        schema:datePublished  "2016"^^xsd:gYear;
-        schema:name           "La La Land"@en .
-
-data:drive  a                 schema:Movie;
-        rdfs:label            "Drive"@en;
-        ex:durationMinutes    100;
-        ex:hasAward           data:best-director-award;
-        schema:datePublished  "2011"^^xsd:gYear;
-        schema:name           "Drive"@en .
-
-data:blade-runner-2049
-        a                     schema:Movie;
-        rdfs:label            "Blade Runner 2049"@en;
-        ex:durationMinutes    164;
-        ex:hasAward           data:oscar-cinematography;
-        schema:datePublished  "2017"^^xsd:gYear;
-        schema:name           "Blade Runner 2049"@en .
-
-data:best-director-award
-        a              ex:Award;
-        rdfs:label     "Best Director Award"@en;
-        ex:awardedTo   data:drive;
-        ex:prizeMoney  "10000"^^xsd:decimal;
-        schema:name    "Best Director Award"@en .
+<http://example.org/data/screening-slovansky-dum>
+        a                              <http://schema.org/ScreeningEvent>;
+        :showsFilm                     <http://example.org/data/blade-runner-2049>;
+        <http://schema.org/location>   <http://example.org/data/location-slovansky-dum>;
+        <http://schema.org/name>       "Slovansky Dum Screening"@en;
+        <http://schema.org/startDate>  "2017-07-16T21:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime>;
+        <http://www.w3.org/2000/01/rdf-schema#label>  "Blade Runner 2049 screening at Slovansky dum"@en .

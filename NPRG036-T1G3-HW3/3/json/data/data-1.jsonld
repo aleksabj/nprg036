@@ -1,147 +1,164 @@
 {
   "@context": {
-    "@language": "en",
-
-    "ex": "http://example.org/vocabulary/",
-    "data": "http://example.org/data/",
-    "schema": "http://schema.org/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-
-    "iri": "@id",
+    "id": "@id",
     "type": "@type",
-
-    "label": { "@id": "rdfs:label" },
-    "name":  { "@id": "schema:name" },
-
-    "durationMinutes": { "@id": "ex:durationMinutes", "@type": "xsd:integer" },
-    "datePublished":   { "@id": "schema:datePublished", "@type": "xsd:gYear" },
-
-    "movieRef": { "@id": "ex:showsFilm",  "@type": "@id" }, 
-    "locationRef": { "@id": "schema:location","@type": "@id" },
-    "startDate": { "@id": "schema:startDate","@type": "xsd:dateTime" },
-
-    "hasAward": { "@id": "ex:hasAward",   "@type": "@id" },
-    "movieRefA":   { "@id": "ex:awardedTo",  "@type": "@id" },     
-    "prizeMoney":  { "@id": "ex:prizeMoney", "@type": "xsd:decimal" }
+    "@vocab": "http://example.org/vocabulary/",
+    "ScreeningEvent": "http://schema.org/ScreeningEvent",
+    "Movie": "http://schema.org/Movie",
+    "Place": "http://schema.org/Place",
+    "Actor": "http://example.org/vocabulary/Actor",
+    "Director": "http://example.org/vocabulary/Director",
+    "Award": "http://example.org/vocabulary/Award",
+    "name": {
+      "@id": "http://schema.org/name",
+      "@container": "@language"
+    },
+    "label": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+      "@container": "@language"
+    },
+    "location": {
+      "@id": "http://schema.org/location",
+      "@type": "@id"
+    },
+    "startDate": {
+      "@id": "http://schema.org/startDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "showsFilm": {
+      "@id": "http://example.org/vocabulary/showsFilm",
+      "@type": "@id"
+    },
+    "durationMinutes": {
+      "@id": "http://example.org/vocabulary/durationMinutes",
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "datePublished": {
+      "@id": "http://schema.org/datePublished",
+      "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+    },
+    "birthYear": {
+      "@id": "http://example.org/vocabulary/birthYear",
+      "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+    },
+    "phone": {
+      "@id": "http://example.org/vocabulary/phone",
+      "@type": "@id"
+    },
+    "actsIn": {
+      "@id": "http://example.org/vocabulary/actsIn",
+      "@type": "@id"
+    },
+    "directs": {
+      "@id": "http://example.org/vocabulary/directs",
+      "@type": "@id"
+    },
+    "hasAward": {
+      "@id": "http://example.org/vocabulary/hasAward",
+      "@type": "@id"
+    },
+    "prizeMoney": {
+      "@id": "http://example.org/vocabulary/prizeMoney",
+      "@type": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "awardedTo": {
+      "@id": "http://example.org/vocabulary/awardedTo",
+      "@type": "@id"
+    }
   },
-
-  "movies": [
-    {
-      "iri": "data:drive",
-      "type": "schema:Movie",
-      "label": "Drive",
-      "name":  "Drive",
-      "durationMinutes": 100,
-      "datePublished": "2011",
-      "hasAward": [ "data:best-director-award" ]
-    },
-    {
-      "iri": "data:blade-runner-2049",
-      "type": "schema:Movie",
-      "label": "Blade Runner 2049",
-      "name":  "Blade Runner 2049",
-      "durationMinutes": 164,
-      "datePublished": "2017",
-      "hasAward": [ "data:oscar-cinematography" ]
-    },
-    {
-      "iri": "data:la-la-land",
-      "type": "schema:Movie",
-      "label": "La La Land",
-      "name":  "La La Land",
-      "durationMinutes": 128,
-      "datePublished": "2016",
-      "hasAward": [ "data:oscar-actress" ]
-    }
-  ],
-
-  "places": [
-    { "iri": "data:location-guliver", "type": "schema:Place", "label": "Guliver" },
-    { "iri": "data:location-hydropark", "type": "schema:Place", "label": "Hydropark" },
-    { "iri": "data:location-slovansky-dum", "type": "schema:Place", "label": "Slovansky dum" }
-  ],
-
-  "screenings": [
-    {
-      "iri": "data:screening-guliver",
-      "type": "schema:ScreeningEvent",
-      "label": "La La Land screening at Guliver",
-      "name":  "Guliver Screening",
-      "movieRef": { "iri": "data:la-la-land" },
-      "locationRef": { "iri": "data:location-guliver" },
-      "startDate": "2016-05-27T12:15:00Z"
-    },
-    {
-      "iri": "data:screening-hydropark",
-      "type": "schema:ScreeningEvent",
-      "label": "Drive screening at Hydropark",
-      "name":  "Hydropark Screening",
-      "movieRef": { "iri": "data:drive" },
-      "locationRef": { "iri": "data:location-hydropark" },
-      "startDate": "2011-11-10T20:00:00Z"
-    },
-    {
-      "iri": "data:screening-slovansky-dum",
-      "type": "schema:ScreeningEvent",
-      "label": "Blade Runner 2049 screening at Slovansky dum",
-      "name":  "Slovansky dum Screening",
-      "movieRef":    { "iri": "data:blade-runner-2049" },
-      "locationRef": { "iri": "data:location-slovansky-dum" },
-      "startDate": "2017-10-10T20:00:00Z"
-    }
-  ],
-
-  "awards": [
-    {
-      "iri": "data:best-director-award",
-      "type": "ex:Award",
-      "label": "Best Director Award",
-      "name":  "Best Director Award",
-      "movieRef":  { "iri": "data:drive" },
-      "movieRefA": "data:drive",
-      "prizeMoney": 10000
-    },
-    {
-      "iri": "data:oscar-cinematography",
-      "type": "ex:Award",
-      "label": "Oscar Best Cinematography",
-      "name":  "Oscar Best Cinematography",
-      "movieRef":  { "iri": "data:blade-runner-2049" },
-      "movieRefA": "data:blade-runner-2049",
-      "prizeMoney": 15000
-    },
-    {
-      "iri": "data:oscar-actress",
-      "type": "ex:Award",
-      "label": "Oscar Best Actress",
-      "name":  "Oscar Best Actress",
-      "movieRef":  { "iri": "data:la-la-land" },
-      "movieRefA": "data:la-la-land",
-      "prizeMoney": 20000
-    }
-  ],
-
   "@graph": [
-    { "iri": "data:drive", "type": "schema:Movie", "label": "Drive", "name": "Drive", "durationMinutes": 100, "datePublished": "2011", "hasAward": [ "data:best-director-award" ] },
-    { "iri": "data:blade-runner-2049", "type": "schema:Movie", "label": "Blade Runner 2049",  "name": "Blade Runner 2049",  "durationMinutes": 164, "datePublished": "2017", "hasAward": [ "data:oscar-cinematography" ] },
-    { "iri": "data:la-la-land", "type": "schema:Movie", "label": "La La Land", "name": "La La Land", "durationMinutes": 128, "datePublished": "2016", "hasAward": [ "data:oscar-actress" ] },
-
-    { "iri": "data:location-guliver", "type": "schema:Place", "label": "Guliver" },
-    { "iri": "data:location-hydropark", "type": "schema:Place", "label": "Hydropark" },
-    { "iri": "data:location-slovansky-dum", "type": "schema:Place", "label": "Slovansky dum" },
-
-    { "iri": "data:screening-guliver", "type": "schema:ScreeningEvent", "label": "La La Land screening at Guliver", "name": "Guliver Screening",
-      "movieRef": "data:la-la-land", "locationRef": "data:location-guliver", "startDate": "2016-05-27T12:15:00Z" },
-
-    { "iri": "data:screening-hydropark", "type": "schema:ScreeningEvent", "label": "Drive screening at Hydropark", "name": "Hydropark Screening",
-      "movieRef": "data:drive", "locationRef": "data:location-hydropark", "startDate": "2011-11-10T20:00:00Z" },
-
-    { "iri": "data:screening-slovansky-dum","type": "schema:ScreeningEvent", "label": "Blade Runner 2049 screening at Slovansky dum", "name": "Slovansky dum Screening",
-      "movieRef": "data:blade-runner-2049", "locationRef": "data:location-slovansky-dum", "startDate": "2017-10-10T20:00:00Z" },
-
-    { "iri": "data:best-director-award", "type": "ex:Award", "label": "Best Director Award", "name": "Best Director Award", "movieRefA": "data:drive", "prizeMoney": 10000 },
-    { "iri": "data:oscar-cinematography", "type": "ex:Award", "label": "Oscar Best Cinematography", "name": "Oscar Best Cinematography", "movieRefA": "data:blade-runner-2049",  "prizeMoney": 15000 },
-    { "iri": "data:oscar-actress", "type": "ex:Award", "label": "Oscar Best Actress", "name": "Oscar Best Actress", "movieRefA": "data:la-la-land", "prizeMoney": 20000 }
+    {
+      "id": "http://example.org/data/screening-hydropark",
+      "type": "ScreeningEvent",
+      "name": {
+        "en": "Hydropark Screening"
+      },
+      "label": {
+        "en": "Drive screening at Hydropark"
+      },
+      "startDate": "2011-05-15T20:00:00Z",
+      "location": {
+        "id": "http://example.org/data/location-hydropark",
+        "type": "Place",
+        "label": {
+          "en": "Hydropark"
+        }
+      },
+      "showsFilm": {
+        "id": "http://example.org/data/drive",
+        "type": "Movie",
+        "name": {
+          "en": "Drive"
+        },
+        "label": {
+          "en": "Drive"
+        },
+        "durationMinutes": 100,
+        "datePublished": "2011",
+        "hasAward": "http://example.org/data/best-director-award"
+      }
+    },
+    {
+      "id": "http://example.org/data/screening-slovansky-dum",
+      "type": "ScreeningEvent",
+      "name": {
+        "en": "Slovansky Dum Screening"
+      },
+      "label": {
+        "en": "Blade Runner 2049 screening at Slovansky dum"
+      },
+      "startDate": "2017-07-16T21:00:00Z",
+      "location": {
+        "id": "http://example.org/data/location-slovansky-dum",
+        "type": "Place",
+        "label": {
+          "en": "Slovansky dum"
+        }
+      },
+      "showsFilm": {
+        "id": "http://example.org/data/blade-runner-2049",
+        "type": "Movie",
+        "name": {
+          "en": "Blade Runner 2049"
+        },
+        "label": {
+          "en": "Blade Runner 2049"
+        },
+        "durationMinutes": 164,
+        "datePublished": "2017",
+        "hasAward": "http://example.org/data/oscar-cinematography"
+      }
+    },
+    {
+      "id": "http://example.org/data/screening-guliver",
+      "type": "ScreeningEvent",
+      "name": {
+        "en": "Guliver Screening"
+      },
+      "label": {
+        "en": "La La Land screening at Guliver"
+      },
+      "startDate": "2016-05-27T12:15:00Z",
+      "location": {
+        "id": "http://example.org/data/location-guliver",
+        "type": "Place",
+        "label": {
+          "en": "Guliver"
+        }
+      },
+      "showsFilm": {
+        "id": "http://example.org/data/la-la-land",
+        "type": "Movie",
+        "name": {
+          "en": "La La Land"
+        },
+        "label": {
+          "en": "La La Land"
+        },
+        "durationMinutes": 128,
+        "datePublished": "2016",
+        "hasAward": "http://example.org/data/oscar-actress"
+      }
+    }
   ]
 }
