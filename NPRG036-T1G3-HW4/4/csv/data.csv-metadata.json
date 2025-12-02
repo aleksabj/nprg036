@@ -1,0 +1,159 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "tables": [
+    {
+      "url": "data-1.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "movie_id", "datatype": "string"},
+          {"name": "title", "datatype": "string"},
+          {"name": "label", "datatype": "string"},
+          {"name": "duration_minutes", "datatype": "integer"},
+          {"name": "published_year", "datatype": "integer"}
+        ],
+        "primaryKey": "movie_id"
+      }
+    },
+    {
+      "url": "data-2.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "actor_id", "datatype": "string"},
+          {"name": "name", "datatype": "string"},
+          {"name": "label", "datatype": "string"},
+          {"name": "birth_year", "datatype": "integer"},
+          {"name": "phone", "datatype": "string"}
+        ],
+        "primaryKey": "actor_id"
+      }
+    },
+    {
+      "url": "data-3.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "director_id", "datatype": "string"},
+          {"name": "name", "datatype": "string"},
+          {"name": "label", "datatype": "string"},
+          {"name": "birth_year", "datatype": "integer"},
+          {"name": "phone", "datatype": "string"}
+        ],
+        "primaryKey": "director_id"
+      }
+    },
+    {
+      "url": "data-4.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "place_id", "datatype": "string"},
+          {"name": "name", "datatype": "string"},
+          {"name": "label", "datatype": "string"}
+        ],
+        "primaryKey": "place_id"
+      }
+    },
+    {
+      "url": "data-5.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "screening_id", "datatype": "string"},
+          {"name": "name", "datatype": "string"},
+          {"name": "label", "datatype": "string"},
+          {"name": "start_date", "datatype": "string"},
+          {"name": "movie_id", "datatype": "string"},
+          {"name": "place_id", "datatype": "string"}
+        ],
+        "primaryKey": "screening_id",
+        "foreignKeys": [
+          {
+            "columnReference": "movie_id",
+            "reference": {
+              "resource": "data-1.csv",
+              "columnReference": "movie_id"
+            }
+          },
+          {
+            "columnReference": "place_id",
+            "reference": {
+              "resource": "data-4.csv",
+              "columnReference": "place_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "data-6.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "award_id", "datatype": "string"},
+          {"name": "name", "datatype": "string"},
+          {"name": "label", "datatype": "string"},
+          {"name": "prize_money", "datatype": "integer"},
+          {"name": "awarded_to_movie", "datatype": "string"}
+        ],
+        "primaryKey": "award_id",
+        "foreignKeys": [
+          {
+            "columnReference": "awarded_to_movie",
+            "reference": {
+              "resource": "data-1.csv",
+              "columnReference": "movie_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "data-7.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "actor_id", "datatype": "string"},
+          {"name": "movie_id", "datatype": "string"}
+        ],
+        "primaryKey": ["actor_id", "movie_id"],
+        "foreignKeys": [
+          {
+            "columnReference": "actor_id",
+            "reference": {
+              "resource": "data-2.csv",
+              "columnReference": "actor_id"
+            }
+          },
+          {
+            "columnReference": "movie_id",
+            "reference": {
+              "resource": "data-1.csv",
+              "columnReference": "movie_id"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "url": "data-8.csv",
+      "tableSchema": {
+        "columns": [
+          {"name": "director_id", "datatype": "string"},
+          {"name": "movie_id", "datatype": "string"}
+        ],
+        "primaryKey": ["director_id", "movie_id"],
+        "foreignKeys": [
+          {
+            "columnReference": "director_id",
+            "reference": {
+              "resource": "data-3.csv",
+              "columnReference": "director_id"
+            }
+          },
+          {
+            "columnReference": "movie_id",
+            "reference": {
+              "resource": "data-1.csv",
+              "columnReference": "movie_id"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

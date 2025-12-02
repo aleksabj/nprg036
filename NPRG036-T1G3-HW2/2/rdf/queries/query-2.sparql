@@ -1,0 +1,18 @@
+#average duration per director
+
+PREFIX ex:      <http://example.org/vocabulary/>
+PREFIX schema:  <http://schema.org/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?director ?directorName
+       (AVG(xsd:integer(?mins)) AS ?avgMinutes)
+       (COUNT(DISTINCT ?movie) AS ?moviesCount)
+WHERE {
+  ?director a ex:Director ;
+            schema:name ?directorName ;
+            ex:directs ?movie .
+  ?movie a schema:Movie ;
+         ex:durationMinutes ?mins .
+}
+GROUP BY ?director ?directorName
+ORDER BY DESC(?avgMinutes)
