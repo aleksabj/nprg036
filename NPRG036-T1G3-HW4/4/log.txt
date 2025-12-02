@@ -1,8 +1,16 @@
 Relational Model and Architecture Notes
 Creator: Aleksa
-Verifiers: Vlad
+Verifiers: Vlad, Tonya, Glauk
 
 CSV data representation
 Creator: Vlad
-Verifiers:
+Verifiers: Tonya, Disha
+
+CSV on the Web Table Group Descriptor
+Creator: Tonya
+Verifiers: Aleksa, Vlad, Disha, Glauk
+
+
+
+
 
