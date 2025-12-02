@@ -1,3 +1,8 @@
 Relational Model and Architecture Notes
-Creator: Aleksandrina Bujor
-Verifiers: 
+Creator: Aleksa
+Verifiers: Vlad
+
+CSV data representation
+Creator: Vlad
+Verifiers:
+

@@ -1,0 +1,4 @@
+screening_id,name,label,start_date,movie_id,place_id
+screening-hydropark,Hydropark Screening,Drive screening at Hydropark,2011-11-11T16:30:00,drive,location-hydropark
+screening-slovansky-dum,Slovansky dum Screening,Blade Runner 2049 screening at Slovansky dum,2017-07-16T21:00:00,blade-runner-2049,location-slovansky-dum
+screening-guliver,Guliver Screening,La La Land screening at Guliver,2016-05-27T12:15:00,la-la-land,location-guliver

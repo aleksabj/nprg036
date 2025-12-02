@@ -1,0 +1,4 @@
+award_id,name,label,prize_money,awarded_to_movie
+best-director-award,Best Director Award,Best Director Award,10000,drive
+oscar-cinematography,Oscar Best Cinematography,Oscar Best Cinematography,15000,blade-runner-2049
+oscar-actress,Oscar Best Actress,Oscar Best Actress,20000,la-la-land
