@@ -1,0 +1,116 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/data/best-director-award> a <http://example.org/vocabulary/Award>;
+  rdfs:label "Best Director Award"@en;
+  <http://example.org/vocabulary/awardedTo> <http://example.org/data/drive>;
+  <http://example.org/vocabulary/prizeMoney> 10000.0;
+  schema:name "Best Director Award"@en .
+
+<http://example.org/data/damien-chazelle> a <http://example.org/vocabulary/Director>;
+  rdfs:label "Damien Chazelle"@en;
+  <http://example.org/vocabulary/birthYear> "1985"^^xsd:gYear;
+  <http://example.org/vocabulary/directs> <http://example.org/data/la-la-land>;
+  <http://example.org/vocabulary/phone> "tel:+1-063-853-354";
+  schema:name "Damien Chazelle"@en .
+
+<http://example.org/data/denis-villeneuve> a <http://example.org/vocabulary/Director>;
+  rdfs:label "Denis Villeneuve"@en;
+  <http://example.org/vocabulary/birthYear> "1967"^^xsd:gYear;
+  <http://example.org/vocabulary/directs> <http://example.org/data/blade-runner-2049>;
+  <http://example.org/vocabulary/phone> "tel:+1-853-945-839";
+  schema:name "Denis Villeneuve"@en .
+
+<http://example.org/data/emma-stone> a <http://example.org/vocabulary/Actor>;
+  rdfs:label "Emma Stone"@en;
+  <http://example.org/vocabulary/actsIn> <http://example.org/data/la-la-land>;
+  <http://example.org/vocabulary/birthYear> "1988"^^xsd:gYear;
+  <http://example.org/vocabulary/phone> "tel:+1-793-264-092";
+  schema:name "Emma Stone"@en .
+
+<http://example.org/data/harrison-ford> a <http://example.org/vocabulary/Actor>;
+  rdfs:label "Harrison Ford"@en;
+  <http://example.org/vocabulary/actsIn> <http://example.org/data/blade-runner-2049>;
+  <http://example.org/vocabulary/birthYear> "1942"^^xsd:gYear;
+  <http://example.org/vocabulary/phone> "tel:+1-608-111-808";
+  schema:name "Harrison Ford"@en .
+
+<http://example.org/data/nicolas-winding-refn> a <http://example.org/vocabulary/Director>;
+  rdfs:label "Nicolas Winding Refn"@en;
+  <http://example.org/vocabulary/birthYear> "1970"^^xsd:gYear;
+  <http://example.org/vocabulary/directs> <http://example.org/data/drive>;
+  <http://example.org/vocabulary/phone> "tel:+1-324-266-793";
+  schema:name "Nicolas Winding Refn"@en .
+
+<http://example.org/data/oscar-actress> a <http://example.org/vocabulary/Award>;
+  rdfs:label "Oscar Best Actress"@en;
+  <http://example.org/vocabulary/awardedTo> <http://example.org/data/la-la-land>;
+  <http://example.org/vocabulary/prizeMoney> 20000.0;
+  schema:name "Oscar Best Actress"@en .
+
+<http://example.org/data/oscar-cinematography> a <http://example.org/vocabulary/Award>;
+  rdfs:label "Oscar Best Cinematography"@en;
+  <http://example.org/vocabulary/awardedTo> <http://example.org/data/blade-runner-2049>;
+  <http://example.org/vocabulary/prizeMoney> 15000.0;
+  schema:name "Oscar Best Cinematography"@en .
+
+<http://example.org/data/ryan-gosling> a <http://example.org/vocabulary/Actor>;
+  rdfs:label "Ryan Gosling"@en;
+  <http://example.org/vocabulary/actsIn> <http://example.org/data/blade-runner-2049>,
+    <http://example.org/data/drive>;
+  <http://example.org/vocabulary/birthYear> "1980"^^xsd:gYear;
+  <http://example.org/vocabulary/phone> "tel:+1-608-266-732";
+  schema:name "Ryan Gosling"@en .
+
+<http://example.org/data/screening-guliver> a schema:ScreeningEvent;
+  rdfs:label "La La Land screening at Guliver"@en;
+  <http://example.org/vocabulary/showsFilm> <http://example.org/data/la-la-land>;
+  schema:location <http://example.org/data/location-guliver>;
+  schema:name "Guliver Screening"@en;
+  schema:startDate "2016-05-27T12:15:00"^^xsd:dateTime .
+
+<http://example.org/data/screening-hydropark> a schema:ScreeningEvent;
+  rdfs:label "Drive screening at Hydropark"@en;
+  <http://example.org/vocabulary/showsFilm> <http://example.org/data/drive>;
+  schema:location <http://example.org/data/location-hydropark>;
+  schema:name "Hydropark Screening"@en;
+  schema:startDate "2011-11-11T16:30:00"^^xsd:dateTime .
+
+<http://example.org/data/screening-slovansky-dum> a schema:ScreeningEvent;
+  rdfs:label "Blade Runner 2049 screening at Slovansky dum"@en;
+  <http://example.org/vocabulary/showsFilm> <http://example.org/data/blade-runner-2049>;
+  schema:location <http://example.org/data/location-slovansky-dum>;
+  schema:name "Slovansky dum Screening"@en;
+  schema:startDate "2017-07-16T21:00:00"^^xsd:dateTime .
+
+<http://example.org/data/location-guliver> a schema:Place;
+  rdfs:label "Guliver"@en;
+  schema:name "Guliver"@en .
+
+<http://example.org/data/location-hydropark> a schema:Place;
+  rdfs:label "Hydropark"@en;
+  schema:name "Hydropark"@en .
+
+<http://example.org/data/location-slovansky-dum> a schema:Place;
+  rdfs:label "Slovansky dum"@en;
+  schema:name "Slovansky dum"@en .
+
+<http://example.org/data/drive> a schema:Movie;
+  rdfs:label "Drive"@en;
+  <http://example.org/vocabulary/durationMinutes> 100;
+  schema:datePublished "2011"^^xsd:gYear;
+  schema:name "Drive"@en .
+
+<http://example.org/data/la-la-land> a schema:Movie;
+  rdfs:label "La La Land"@en;
+  <http://example.org/vocabulary/durationMinutes> 128;
+  schema:datePublished "2016"^^xsd:gYear;
+  schema:name "La La Land"@en .
+
+<http://example.org/data/blade-runner-2049> a schema:Movie;
+  rdfs:label "Blade Runner 2049"@en;
+  <http://example.org/vocabulary/durationMinutes> 164;
+  schema:datePublished "2017"^^xsd:gYear;
+  schema:name "Blade Runner 2049"@en .
