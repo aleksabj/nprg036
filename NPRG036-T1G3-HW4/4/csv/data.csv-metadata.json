@@ -4,63 +4,205 @@
     {
       "url": "data-1.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{movie_id}",
         "columns": [
-          {"name": "movie_id", "datatype": "string"},
-          {"name": "title", "datatype": "string"},
-          {"name": "label", "datatype": "string"},
-          {"name": "duration_minutes", "datatype": "integer"},
-          {"name": "published_year", "datatype": "integer"}
+          {
+            "name": "movie_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "title",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/name",
+            "lang": "en"
+          },
+          {
+            "name": "label",
+            "datatype": "string",
+            "propertyUrl": "http://www.w3.org/2000/01/rdf-schema#label",
+            "lang": "en"
+          },
+          {
+            "name": "duration_minutes",
+            "datatype": "integer",
+            "propertyUrl": "http://example.org/vocabulary/durationMinutes"
+          },
+          {
+            "name": "published_year",
+            "datatype": "gYear",
+            "propertyUrl": "http://schema.org/datePublished"
+          },
+          {
+            "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "http://schema.org/Movie"
+          }
         ],
         "primaryKey": "movie_id"
       }
     },
+
     {
       "url": "data-2.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{actor_id}",
         "columns": [
-          {"name": "actor_id", "datatype": "string"},
-          {"name": "name", "datatype": "string"},
-          {"name": "label", "datatype": "string"},
-          {"name": "birth_year", "datatype": "integer"},
-          {"name": "phone", "datatype": "string"}
+          {
+            "name": "actor_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "name",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/name",
+            "lang": "en"
+          },
+          {
+            "name": "label",
+            "datatype": "string",
+            "propertyUrl": "http://www.w3.org/2000/01/rdf-schema#label",
+            "lang": "en"
+          },
+          {
+            "name": "birth_year",
+            "datatype": "gYear",
+            "propertyUrl": "http://example.org/vocabulary/birthYear"
+          },
+          {
+            "name": "phone",
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/phone"
+          },
+          {
+            "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "http://example.org/vocabulary/Actor"
+          }
         ],
         "primaryKey": "actor_id"
       }
     },
+
     {
       "url": "data-3.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{director_id}",
         "columns": [
-          {"name": "director_id", "datatype": "string"},
-          {"name": "name", "datatype": "string"},
-          {"name": "label", "datatype": "string"},
-          {"name": "birth_year", "datatype": "integer"},
-          {"name": "phone", "datatype": "string"}
+          {
+            "name": "director_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "name",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/name",
+            "lang": "en"
+          },
+          {
+            "name": "label",
+            "datatype": "string",
+            "propertyUrl": "http://www.w3.org/2000/01/rdf-schema#label",
+            "lang": "en"
+          },
+          {
+            "name": "birth_year",
+            "datatype": "gYear",
+            "propertyUrl": "http://example.org/vocabulary/birthYear"
+          },
+          {
+            "name": "phone",
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/phone"
+          },
+          {
+            "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "http://example.org/vocabulary/Director"
+          }
         ],
         "primaryKey": "director_id"
       }
     },
+
     {
       "url": "data-4.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{place_id}",
         "columns": [
-          {"name": "place_id", "datatype": "string"},
-          {"name": "name", "datatype": "string"},
-          {"name": "label", "datatype": "string"}
+          {
+            "name": "place_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "name",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/name",
+            "lang": "en"
+          },
+          {
+            "name": "label",
+            "datatype": "string",
+            "propertyUrl": "http://www.w3.org/2000/01/rdf-schema#label",
+            "lang": "en"
+          },
+          {
+            "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "http://schema.org/Place"
+          }
         ],
         "primaryKey": "place_id"
       }
     },
+
     {
       "url": "data-5.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{screening_id}",
         "columns": [
-          {"name": "screening_id", "datatype": "string"},
-          {"name": "name", "datatype": "string"},
-          {"name": "label", "datatype": "string"},
-          {"name": "start_date", "datatype": "string"},
-          {"name": "movie_id", "datatype": "string"},
-          {"name": "place_id", "datatype": "string"}
+          {
+            "name": "screening_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "name",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/name",
+            "lang": "en"
+          },
+          {
+            "name": "label",
+            "datatype": "string",
+            "propertyUrl": "http://www.w3.org/2000/01/rdf-schema#label",
+            "lang": "en"
+          },
+          {
+            "name": "start_date",
+            "datatype": "dateTime",
+            "propertyUrl": "http://schema.org/startDate"
+          },
+          {
+            "name": "movie_id",
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/showsFilm",
+            "valueUrl": "http://example.org/data/{movie_id}"
+          },
+          {
+            "name": "place_id",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/location",
+            "valueUrl": "http://example.org/data/{place_id}"
+          },
+          {
+            "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "http://schema.org/ScreeningEvent"
+          }
         ],
         "primaryKey": "screening_id",
         "foreignKeys": [
@@ -81,15 +223,45 @@
         ]
       }
     },
+
     {
       "url": "data-6.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{award_id}",
         "columns": [
-          {"name": "award_id", "datatype": "string"},
-          {"name": "name", "datatype": "string"},
-          {"name": "label", "datatype": "string"},
-          {"name": "prize_money", "datatype": "integer"},
-          {"name": "awarded_to_movie", "datatype": "string"}
+          {
+            "name": "award_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "name",
+            "datatype": "string",
+            "propertyUrl": "http://schema.org/name",
+            "lang": "en"
+          },
+          {
+            "name": "label",
+            "datatype": "string",
+            "propertyUrl": "http://www.w3.org/2000/01/rdf-schema#label",
+            "lang": "en"
+          },
+          {
+            "name": "prize_money",
+            "datatype": "decimal",
+            "propertyUrl": "http://example.org/vocabulary/prizeMoney"
+          },
+          {
+            "name": "awarded_to_movie",
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/awardedTo",
+            "valueUrl": "http://example.org/data/{awarded_to_movie}"
+          },
+          {
+            "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "http://example.org/vocabulary/Award"
+          }
         ],
         "primaryKey": "award_id",
         "foreignKeys": [
@@ -103,12 +275,23 @@
         ]
       }
     },
+
     {
       "url": "data-7.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{actor_id}",
         "columns": [
-          {"name": "actor_id", "datatype": "string"},
-          {"name": "movie_id", "datatype": "string"}
+          {
+            "name": "actor_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "movie_id",
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/actsIn",
+            "valueUrl": "http://example.org/data/{movie_id}"
+          }
         ],
         "primaryKey": ["actor_id", "movie_id"],
         "foreignKeys": [
@@ -129,12 +312,23 @@
         ]
       }
     },
+
     {
       "url": "data-8.csv",
       "tableSchema": {
+        "aboutUrl": "http://example.org/data/{director_id}",
         "columns": [
-          {"name": "director_id", "datatype": "string"},
-          {"name": "movie_id", "datatype": "string"}
+          {
+            "name": "director_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "movie_id",
+            "datatype": "string",
+            "propertyUrl": "http://example.org/vocabulary/directs",
+            "valueUrl": "http://example.org/data/{movie_id}"
+          }
         ],
         "primaryKey": ["director_id", "movie_id"],
         "foreignKeys": [
