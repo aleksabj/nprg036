@@ -10,6 +10,14 @@ CSV on the Web Table Group Descriptor
 Creator: Tonya
 Verifiers: Aleksa, Vlad, Disha, Glauk
 
+CSV RDF Mapping Enhancement (aboutUrl, propertyUrl, valueUrl, virtual columns)
+Creator: Disha
+Verifiers: Tonya, Vlad, Glauk
+
+RDF Generation (rdf-tabular)
+Creator: Disha
+Verifiers: Glauk
+
 
 
 
